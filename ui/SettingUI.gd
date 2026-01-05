@@ -1,8 +1,12 @@
 extends ColorRect
 
+const control_help_pre = preload("res://ui/widgets/ControlHelpPanel.tscn")
+
 @onready var volume_slider = $VBoxContainer/VBoxContainer/Control2/volume
 @onready var shake_slider = $VBoxContainer/VBoxContainer/Control/shake
 @onready var language_ui = $VBoxContainer/VBoxContainer/language
+
+var help_panel = null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var language = ConfigUtils.getConfig("setting","language")
@@ -59,3 +63,11 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _on_button_pressed() -> void:
 	get_tree().quit()
+
+func _on_help_button_pressed() -> void:
+	if help_panel == null or !is_instance_valid(help_panel):
+		help_panel = control_help_pre.instantiate()
+		add_child(help_panel)
+		help_panel.show_panel()
+	else:
+		help_panel.toggle()

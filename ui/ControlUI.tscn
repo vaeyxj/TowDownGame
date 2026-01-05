@@ -565,6 +565,11 @@ theme_override_icons/tick = SubResource("ImageTexture_dixfw")
 value = 50.0
 scrollable = false
 
+[node name="HelpButton" type="Button" parent="MainUI/SettingUI/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "操作指引"
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="MainUI/SettingUI/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -640,5 +645,6 @@ texture = ExtResource("9_ud0yi")
 [connection signal="item_selected" from="MainUI/SettingUI/VBoxContainer/VBoxContainer/language" to="MainUI/SettingUI" method="_on_language_item_selected"]
 [connection signal="value_changed" from="MainUI/SettingUI/VBoxContainer/VBoxContainer/Control/shake" to="MainUI/SettingUI" method="_on_shake_value_changed"]
 [connection signal="value_changed" from="MainUI/SettingUI/VBoxContainer/VBoxContainer/Control2/volume" to="MainUI/SettingUI" method="_on_volume_value_changed"]
+[connection signal="pressed" from="MainUI/SettingUI/VBoxContainer/VBoxContainer/HelpButton" to="MainUI/SettingUI" method="_on_help_button_pressed"]
 [connection signal="pressed" from="MainUI/SettingUI/Button" to="MainUI/SettingUI" method="_on_button_pressed"]
 [connection signal="timeout" from="Control/Timer" to="." method="_on_timer_timeout"]

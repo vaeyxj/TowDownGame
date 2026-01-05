@@ -1,4 +1,3 @@
-@tool
 extends TextureRect
 
 var rotation_speed = PI
